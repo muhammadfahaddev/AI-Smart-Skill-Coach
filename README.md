@@ -30,6 +30,42 @@ It's like having a **personal tutor** who has memorized all your study materials
 
 ---
 
+## 📚 Documentation
+
+### 📋 Business Documents
+
+| # | Document | Description |
+|---|----------|-------------|
+| 1 | [Product Vision Document](docs/01_Business_Documents/01_Product_Vision_Document.md) | Project vision, goals, and strategic objectives |
+| 2 | [Business Requirements Document](docs/01_Business_Documents/02_Business_Requirements_Document.md) | Business needs, stakeholders, and requirements |
+| 3 | [Market Analysis & Competitive Study](docs/01_Business_Documents/03_Market_Analysis_Competitive_Study.md) | Market research, competitor analysis |
+
+### 📐 Technical Documents
+
+| # | Document | Description |
+|---|----------|-------------|
+| 1 | [Software Requirement Specification](docs/02_Requirements_Documents/01_Software_Requirement_Specification.md) | Complete SRS with all functional & non-functional requirements |
+| 2 | [Enhanced Security Requirements](docs/02_Requirements_Documents/02_Enhanced_Security_Requirements.md) | Security architecture, authentication, RBAC |
+| 3 | [Enhanced Data Model (ERD)](docs/02_Requirements_Documents/03_Enhanced_Data_Model_ERD.md) | Database schema and entity relationships |
+| 4 | [Enhanced UML Diagrams](docs/02_Requirements_Documents/04_Enhanced_UML_Diagrams.md) | Class, Activity, and Sequence diagrams |
+
+### 📊 Diagrams
+
+All Mermaid diagrams with PNG exports are available in [`docs/diagrams/`](docs/diagrams/README.md)
+
+| Type | Count | Examples |
+|------|-------|----------|
+| Use Case | 1 | User & Admin interactions |
+| Data Flow | 2 | DFD Level 0 & 1 |
+| Sequence | 3 | Auth, Q&A, Payment flows |
+| Class | 1 | Entity relationships |
+| ERD | 2 | Database schema |
+| Activity | 3 | RAG, Upload, Quiz flows |
+| State | 1 | Subscription states |
+| Architecture | 4 | System, Security, Component, RBAC |
+
+---
+
 ## ❓ The Problem
 
 Students and professionals face these challenges every day:
