@@ -118,16 +118,40 @@ AI Smart Skill Coach ek standalone SaaS platform hai jo multiple components se m
 | PF-08 | Payment | Subscriptions, payments |
 | PF-09 | Admin Panel | User, content, revenue management |
 
-## 2.3 User Classes and Characteristics
+## 2.3 User Classes and Characteristics (Updated for Multi-Tenancy)
 
-| User Class | Description | Technical Level |
-|------------|-------------|-----------------|
-| **Learner (Free)** | Basic tier users with limited access | Basic |
-| **Learner (Pro)** | Paid users with full access | Basic |
-| **Learner (Premium)** | Advanced users with priority features | Basic-Medium |
-| **Enterprise User** | Organization employees | Basic-Medium |
-| **Admin** | Platform administrators | Medium-High |
-| **Super Admin** | System administrators | High |
+### 2.3.1 B2C User Roles
+
+| User Class | Description | Technical Level | Key Capabilities |
+|------------|-------------|-----------------|------------------|
+| **🎓 Student** | Individual learners, Exam aspirants | Basic | Upload docs, Chat, Take quizzes |
+| **💼 Professional** | Self-directed upskilling, Career changers | Basic-Medium | Unlimited docs, Certificates, Portfolio |
+
+### 2.3.2 B2B User Roles
+
+| User Class | Description | Technical Level | Key Capabilities |
+|------------|-------------|-----------------|------------------|
+| **👨‍🏫 Educator** | Teachers, Coaches, Team Leads | Medium | Create Cohorts, Assign Content, View Student Progress, Generate Reports |
+| **🏢 Org Admin** | School/Company Admin | Medium-High | Manage Seats, Billing, Invite Users, View Org Analytics |
+
+### 2.3.3 System Roles
+
+| User Class | Description | Technical Level | Key Capabilities |
+|------------|-------------|-----------------|------------------|
+| **Admin** | Platform content moderators | Medium-High | User mgmt, Content moderation |
+| **Super Admin** | DevOps/System administrators | High | Full access, Config, Deployments |
+
+### 2.3.4 RBAC Permission Matrix
+
+| Permission | Student | Professional | Educator | Org Admin | Super Admin |
+|------------|---------|--------------|----------|-----------|-------------|
+| Upload Docs | ✅ | ✅ | ✅ | ❌ | ✅ |
+| AI Chat | ✅ | ✅ | ✅ | ❌ | ✅ |
+| Create Cohorts | ❌ | ❌ | ✅ | ❌ | ✅ |
+| View Cohort Progress | ❌ | ❌ | ✅ | ✅ | ✅ |
+| Manage Org Users | ❌ | ❌ | ❌ | ✅ | ✅ |
+| Billing Access | ❌ | ❌ | ❌ | ✅ | ✅ |
+| System Config | ❌ | ❌ | ❌ | ❌ | ✅ |
 
 ## 2.4 Operating Environment
 

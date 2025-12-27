@@ -38,8 +38,10 @@ Is document mein AI Smart Skill Coach ke major user flows documented hain jo use
 | Document Upload | P0 | Learners |
 | AI Chat | P0 | Learners |
 | Quiz & Certification | P0 | Learners |
-| Subscription | P1 | Learners |
-| Admin Management | P2 | Admins |
+| Subscription | P1 | Learners/Professionals |
+| **Cohort Management** | **P1** | **Educators** |
+| **Organization Admin** | **P1** | **Org Admins** |
+| Admin Management | P2 | Super Admins |
 
 ---
 
@@ -313,19 +315,78 @@ flowchart TD
 
 ---
 
-# 7. User Flow Summary
+# 7. Educator Flow (B2B)
 
-## 7.1 Critical Paths
+## 7.1 Cohort Creation Flow
 
-| Flow | Steps | Est. Time |
-|------|-------|-----------|
-| Registration | 8 steps | 2-3 min |
-| Document Upload | 7 steps | 30 sec |
-| AI Chat Query | 6 steps | < 5 sec |
-| Complete Quiz | 5 steps | 20-30 min |
-| Subscription | 6 steps | 2 min |
+```mermaid
+flowchart TD
+    A[📊 Educator Dashboard] --> B[👥 My Cohorts]
+    B --> C[➕ Create New Cohort]
+    C --> D[Enter Name: Physics 101]
+    D --> E[Generate Enrollment Key]
+    E --> F[✅ Cohort Created]
+    F --> G[📤 Share Key with Students]
+    G --> H[Students Enroll]
+    H --> I[Monitor Progress]
+```
 
-## 7.2 Error Handling
+## 7.2 Student Performance Monitoring
+
+| Action | Educator Capability |
+|--------|---------------------|
+| View Scores | See all quiz results for cohort |
+| Identify At-Risk | Flag students below threshold |
+| Assign Content | Push specific docs to cohort |
+| Generate Reports | Export progress PDF |
+
+---
+
+# 8. Organization Admin Flow (B2B)
+
+## 8.1 Organization Onboarding
+
+```mermaid
+flowchart TD
+    A[🏢 Sign Up as Org] --> B[Enter Org Name & Domain]
+    B --> C[Verify Admin Email]
+    C --> D[✅ Org Created]
+    D --> E[Invite Members]
+    E --> F{Invite Method}
+    F -->|Bulk CSV| G[Upload Email List]
+    F -->|Individual| H[Enter Email]
+    G --> I[Send Invites]
+    H --> I
+    I --> J[Members Join]
+    J --> K[Manage Seats]
+```
+
+## 8.2 Org Admin Capabilities
+
+| Action | Description |
+|--------|-------------|
+| Seat Management | Add/Remove users within license limit |
+| Analytics | View org-wide learning metrics |
+| Billing | Manage enterprise subscription |
+| Promote Educators | Grant Educator role to members |
+
+---
+
+# 9. User Flow Summary (Updated)
+
+## 9.1 Critical Paths
+
+| Flow | Steps | Est. Time | User Type |
+|------|-------|-----------|-----------|
+| Registration | 8 steps | 2-3 min | All |
+| Document Upload | 7 steps | 30 sec | Learners |
+| AI Chat Query | 6 steps | < 5 sec | Learners |
+| Complete Quiz | 5 steps | 20-30 min | Learners |
+| Subscription | 6 steps | 2 min | Professionals |
+| **Cohort Setup** | **5 steps** | **3 min** | **Educators** |
+| **Org Onboarding** | **6 steps** | **5 min** | **Org Admins** |
+
+## 9.2 Error Handling
 
 | Error | User Action | System Response |
 |-------|-------------|-----------------|
@@ -336,4 +397,4 @@ flowchart TD
 
 ---
 
-*Document Version: 1.0 | Last Updated: December 28, 2024*
+*Document Version: 2.0 | Last Updated: December 28, 2024*

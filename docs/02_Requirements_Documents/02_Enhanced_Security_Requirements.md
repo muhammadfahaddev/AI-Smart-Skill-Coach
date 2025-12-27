@@ -69,6 +69,22 @@
 | AI-SEC-04 | Model Access Control | Medium | API key rotation, rate limiting |
 | AI-SEC-05 | Audit Logging | High | Log all AI queries for review |
 
+### 4.2 Organization-Level Security (B2B)
+
+| ID | Requirement | Priority | Description |
+|----|-------------|----------|-------------|
+| ORG-SEC-01 | **Tenant Isolation** | Critical | Org A CANNOT see Org B's data. Enforced at DB query level. |
+| ORG-SEC-02 | **Vector DB Namespace** | High | Separate ChromaDB namespaces per `org_id` to prevent RAG cross-contamination. |
+| ORG-SEC-03 | **SSO/SAML Support** | Medium | Enterprise orgs can use their Identity Provider. |
+| ORG-SEC-04 | **IP Whitelisting** | Low | Optional for high-security orgs. |
+
+### 4.3 Educator-Specific Security
+
+| ID | Requirement | Priority | Description |
+|----|-------------|----------|-------------|
+| EDU-SEC-01 | Cohort Data Access | High | Educators can ONLY see students in their cohorts. |
+| EDU-SEC-02 | Content Ownership | Medium | Educators retain ownership of uploaded curriculum. |
+
 ---
 
 ## 5. Security Audit & Monitoring

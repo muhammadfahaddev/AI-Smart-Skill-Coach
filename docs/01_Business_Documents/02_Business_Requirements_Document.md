@@ -31,29 +31,34 @@ Ye Business Requirements Document (BRD) AI Smart Skill Coach platform ke liye bu
 
 ---
 
-## 3. Stakeholders
+## 3. Stakeholders (Updated for B2B/B2C)
 
 | Stakeholder | Role | Interest | Influence |
 |-------------|------|----------|-----------|
-| Product Owner | Decision maker | High | High |
-| Development Team | Implementation | High | Medium |
-| End Users (Learners) | Primary users | High | Medium |
-| Admin Users | Platform management | Medium | Low |
-| Payment Gateway (Stripe) | Payment processing | Medium | Low |
+| **Product Owner** | Decision maker | High | High |
+| **Development Team** | Implementation | High | Medium |
+| **🎓 Students** | Primary learners (B2C) | High | Medium |
+| **💼 Professionals** | Self-directed learners (B2C) | High | Medium |
+| **👨‍🏫 Educators** | Manage cohorts, create content (B2B) | High | Medium |
+| **🏢 Org Admins** | Manage seats, billing, analytics (B2B) | High | High |
+| **Super Admin** | Platform governance | Medium | High |
+| **Payment Gateway (Stripe)** | Payment processing | Medium | Low |
 
 ---
 
 ## 4. Business Requirements
 
-### 4.1 User Management Requirements
+### 4.1 User & Organization Management
 
 | ID | Requirement | Priority | Acceptance Criteria |
 |----|-------------|----------|---------------------|
 | BR-UM-01 | System user registration allow kare | High | Email/password + social login |
 | BR-UM-02 | User profile management | High | Edit profile, avatar, preferences |
-| BR-UM-03 | Role-based access control | High | User, Admin, Super Admin roles |
+| BR-UM-03 | **Advanced Role-Based Access Control** | **Critical** | **Student, Professional, Educator, Org Admin, Super Admin roles** |
 | BR-UM-04 | Password recovery | High | Email-based password reset |
 | BR-UM-05 | Session management | Medium | Auto logout, remember me |
+| **BR-UM-06** | **Organization creation & management** | **High** | **Create org, invite members, manage seats** |
+| **BR-UM-07** | **Cohort/Class creation (for Educators)** | **High** | **Educators can group students** |
 
 ---
 

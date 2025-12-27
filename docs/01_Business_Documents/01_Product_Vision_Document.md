@@ -60,16 +60,23 @@
 
 ---
 
-## 5. Target Market
+## 5. Target Market (Updated for Enterprise)
 
-### Primary Users:
+### 5.1 User Segments (Personas)
 
-| Segment | Description | Size |
-|---------|-------------|------|
-| **Students** | College/University students, competitive exam aspirants | Large |
-| **Working Professionals** | Skill upgraders, career changers | Large |
-| **Corporate Training** | Companies training employees | Medium |
-| **Coaching Institutes** | Institutes wanting AI-powered learning | Small |
+| Segment | Description | Market Size | Pricing Model |
+|---------|-------------|-------------|---------------|
+| **🎓 Students** | College/University learners, Exam Aspirants | Very Large | Freemium (B2C) |
+| **💼 Professionals** | Self-directed upskilling, Career changers | Large | Subscription (B2C) |
+| **👨‍🏫 Educators** | Teachers, Coaches, Tutors managing classes | Medium | Per-Seat (B2B) |
+| **🏢 Organizations** | Schools, Colleges, Corporate Training Depts | Medium | Enterprise Contract (B2B) |
+
+### 5.2 B2B-Specific Value
+
+| Segment | Key Value |
+|---------|-----------|
+| **Educational Institutions** | Deploy AI learning assistant across all students; Monitor dept-wide progress. |
+| **Corporate Training** | Auto-generate compliance quizzes from policy docs; Track employee completion. |
 
 ### Geographic Focus:
 - **Phase 1:** Pakistan, India, Bangladesh (South Asia)
@@ -80,17 +87,17 @@
 
 ## 6. Value Proposition
 
-### For Learners:
+### 6.1 For Individual Learners (B2C):
 - ✅ Apne documents se accurate answers
 - ✅ Personalized learning path
 - ✅ Weak areas detection & improvement suggestions
 - ✅ Verified certificates for resume
 
-### For Organizations:
-- ✅ Employee training automation
-- ✅ Progress tracking & analytics
-- ✅ Cost-effective training solution
-- ✅ Scalable learning platform
+### 6.2 For Organizations (B2B):
+- ✅ **Centralized Dashboard:** View all students/employees from one place.
+- ✅ **Cohort Management:** Educators can create "Classes" and assign content.
+- ✅ **Seat-Based Licensing:** Pay per active user, not flat rate.
+- ✅ **LMS Integration Ready:** API for connecting to existing systems.
 
 ---
 

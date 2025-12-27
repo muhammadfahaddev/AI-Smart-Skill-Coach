@@ -694,7 +694,164 @@ Create Stripe checkout session.
 
 ---
 
-## 5.6 Users API
+## 5.6 Organizations API (B2B)
+
+### POST /organizations
+
+Create a new organization.
+
+**Headers:** `Authorization: Bearer <token>` (Requires PROFESSIONAL or higher role)
+
+**Request Body:**
+```json
+{
+  "name": "Acme Academy",
+  "domain": "acme.edu"
+}
+```
+
+**Response (201):**
+```json
+{
+  "success": true,
+  "data": {
+    "id": "org-550e8400-...",
+    "name": "Acme Academy",
+    "domain": "acme.edu",
+    "plan_type": "FREE",
+    "seat_limit": 5,
+    "owner_id": "user-abc..."
+  }
+}
+```
+
+---
+
+### GET /organizations/{id}/members
+
+List organization members.
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "data": {
+    "members": [
+      {
+        "id": "user-123",
+        "name": "Jane Educator",
+        "email": "jane@acme.edu",
+        "org_role": "ADMIN",
+        "joined_at": "2024-12-27T10:30:00Z"
+      }
+    ],
+    "total": 5,
+    "seat_limit": 50
+  }
+}
+```
+
+---
+
+### POST /organizations/{id}/invite
+
+Invite users to organization.
+
+**Request Body:**
+```json
+{
+  "emails": ["student1@acme.edu", "student2@acme.edu"],
+  "role": "MEMBER"
+}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "data": {
+    "invites_sent": 2,
+    "failed": []
+  }
+}
+```
+
+---
+
+## 5.7 Cohorts/Classes API (Educators)
+
+### POST /cohorts
+
+Create a new cohort/class.
+
+**Headers:** `Authorization: Bearer <token>` (Requires EDUCATOR role)
+
+**Request Body:**
+```json
+{
+  "name": "Physics 101 - Fall 2024",
+  "org_id": "org-550e8400-...",
+  "enrollment_key": "PHY101F24"
+}
+```
+
+**Response (201):**
+```json
+{
+  "success": true,
+  "data": {
+    "id": "cohort-abc...",
+    "name": "Physics 101 - Fall 2024",
+    "educator_id": "user-xyz...",
+    "enrollment_key": "PHY101F24"
+  }
+}
+```
+
+---
+
+### POST /cohorts/{id}/enroll
+
+Students enroll using a key.
+
+**Request Body:**
+```json
+{
+  "enrollment_key": "PHY101F24"
+}
+```
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "message": "Enrolled in Physics 101 - Fall 2024"
+}
+```
+
+---
+
+### GET /cohorts/{id}/progress
+
+Get cohort-level analytics (Educator only).
+
+**Response (200):**
+```json
+{
+  "success": true,
+  "data": {
+    "cohort_id": "cohort-abc...",
+    "student_count": 25,
+    "avg_score": 78.5,
+    "at_risk_students": 3,
+    "top_weak_areas": ["Thermodynamics", "Kinematics"]
+  }
+}
+```
+
+---
+
+## 5.8 Users API
 
 ### GET /users/me
 
@@ -753,16 +910,38 @@ Update user profile.
 
 # 6. Data Models
 
-## 6.1 User Model
+## 6.1 User Model (Updated for RBAC)
 
 | Field | Type | Description |
 |-------|------|-------------|
 | id | uuid | Unique identifier |
 | email | string | Email address |
 | name | string | Display name |
-| role | enum | FREE/PRO/PREMIUM/ADMIN |
+| role | enum | **STUDENT/PROFESSIONAL/EDUCATOR/ORG_ADMIN/SUPER_ADMIN** |
+| current_org_id | uuid | Active organization context (nullable) |
 | is_verified | boolean | Email verified |
 | created_at | datetime | Registration date |
+
+## 6.2 Organization Model (New)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| id | uuid | Unique identifier |
+| name | string | Organization name |
+| domain | string | Email domain for auto-join |
+| plan_type | enum | FREE/TEAM/ENTERPRISE |
+| seat_limit | integer | Max users allowed |
+| owner_id | uuid | Primary contact user |
+
+## 6.3 Cohort Model (New)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| id | uuid | Unique identifier |
+| name | string | Class/Cohort name |
+| educator_id | uuid | Managing educator |
+| org_id | uuid | Parent org (optional) |
+| enrollment_key | string | Join code for students |
 
 ## 6.2 Document Model
 
