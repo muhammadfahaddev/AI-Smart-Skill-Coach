@@ -48,6 +48,7 @@ It's like having a **personal tutor** who has memorized all your study materials
 | 2 | [Enhanced Security Requirements](docs/02_Requirements_Documents/02_Enhanced_Security_Requirements.md) | Security architecture, authentication, RBAC |
 | 3 | [Enhanced Data Model (ERD)](docs/02_Requirements_Documents/03_Enhanced_Data_Model_ERD.md) | Database schema and entity relationships |
 | 4 | [Enhanced UML Diagrams](docs/02_Requirements_Documents/04_Enhanced_UML_Diagrams.md) | Class, Activity, and Sequence diagrams |
+| 5 | [AI Requirements Specification](docs/02_Requirements_Documents/05_AI_Requirements_Specification.md) | RAG, Fine-Tuning, Performance Metrics, Data Pipeline |
 
 ### 📊 Diagrams
 
@@ -63,6 +64,7 @@ All Mermaid diagrams with PNG exports are available in [`docs/diagrams/`](docs/d
 | Activity | 3 | RAG, Upload, Quiz flows |
 | State | 1 | Subscription states |
 | Architecture | 4 | System, Security, Component, RBAC |
+| **AI Diagrams** | 2 | Ingestion Pipeline, AI Architecture |
 
 ---
 

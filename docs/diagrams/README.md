@@ -25,7 +25,7 @@ diagrams/
 ├── 05_erd/
 │   └── v1.0/
 │       ├── entity_relationship.md
-│       └── erd_overview.md          ← NEW
+│       └── erd_overview.md
 ├── 06_activity/
 │   └── v1.0/
 │       ├── rag_pipeline.md
@@ -34,12 +34,16 @@ diagrams/
 ├── 07_state/
 │   └── v1.0/
 │       └── subscription_state.md
-└── 08_architecture/
+├── 08_architecture/
+│   └── v1.0/
+│       ├── system_context.md
+│       ├── security_architecture.md
+│       ├── component_diagram.md
+│       └── rbac_diagram.md
+└── 09_ai/                              ← NEW
     └── v1.0/
-        ├── system_context.md
-        ├── security_architecture.md
-        ├── component_diagram.md      ← NEW
-        └── rbac_diagram.md           ← NEW
+        ├── document_ingestion_pipeline.md
+        └── ai_system_architecture.md
 ```
 
 ---
@@ -56,6 +60,7 @@ diagrams/
 | 6 | Activity | 3 | rag_pipeline.md, document_upload.md, quiz_certification.md |
 | 7 | State | 1 | subscription_state.md |
 | 8 | Architecture | 4 | system_context.md, security_architecture.md, component_diagram.md, rbac_diagram.md |
+| 9 | **AI Diagrams** | 2 | document_ingestion_pipeline.md, ai_system_architecture.md |
 
 ---
 
@@ -67,4 +72,4 @@ diagrams/
 
 ---
 
-*Total: 17 Mermaid Diagrams*
+*Total: 19 Mermaid Diagrams*
