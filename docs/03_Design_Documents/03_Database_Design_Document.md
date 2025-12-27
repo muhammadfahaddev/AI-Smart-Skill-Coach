@@ -168,78 +168,76 @@ Database: ai_smart_skill_coach
 
 # 6. Table Specifications
 
-## 6.1 Users Table
+## 6.1 Users Table (Updated for RBAC)
 
 ```sql
 CREATE TABLE users (
     id CHAR(36) PRIMARY KEY COMMENT 'UUID v4',
-    email VARCHAR(255) NOT NULL UNIQUE COMMENT 'User email address',
-    password_hash VARCHAR(255) NOT NULL COMMENT 'Bcrypt hashed password',
-    name VARCHAR(100) COMMENT 'Display name',
-    role ENUM('FREE', 'PRO', 'PREMIUM', 'ADMIN', 'SUPER_ADMIN') 
-        DEFAULT 'FREE' COMMENT 'User role/tier',
-    is_verified BOOLEAN DEFAULT FALSE COMMENT 'Email verified status',
-    is_active BOOLEAN DEFAULT TRUE COMMENT 'Account active status',
-    avatar_url VARCHAR(500) COMMENT 'Profile picture URL',
-    last_login_at TIMESTAMP NULL COMMENT 'Last login timestamp',
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    name VARCHAR(100),
+    role ENUM('STUDENT', 'PROFESSIONAL', 'EDUCATOR', 'ORG_ADMIN', 'SUPER_ADMIN') 
+        DEFAULT 'STUDENT' COMMENT 'New Role definitions',
+    current_org_id CHAR(36) COMMENT 'Active context for Multi-org users',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     
-    INDEX idx_email (email),
-    INDEX idx_role (role),
-    INDEX idx_created_at (created_at)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-COMMENT='User accounts and authentication';
+    FOREIGN KEY (current_org_id) REFERENCES organizations(id)
+) ENGINE=InnoDB;
 ```
 
 ---
 
-## 6.2 Documents Table
+## 6.1.1 Organizations Table (New)
 
 ```sql
-CREATE TABLE documents (
-    id CHAR(36) PRIMARY KEY COMMENT 'UUID v4',
-    user_id CHAR(36) NOT NULL COMMENT 'Owner user ID',
-    filename VARCHAR(255) NOT NULL COMMENT 'Original filename',
-    file_path VARCHAR(500) NOT NULL COMMENT 'Azure Blob path',
-    file_size INT UNSIGNED COMMENT 'File size in bytes',
-    mime_type VARCHAR(100) COMMENT 'MIME type (application/pdf)',
-    status ENUM('PENDING', 'PROCESSING', 'READY', 'FAILED') 
-        DEFAULT 'PENDING' COMMENT 'Processing status',
-    chunk_count INT UNSIGNED DEFAULT 0 COMMENT 'Number of text chunks',
-    page_count INT UNSIGNED COMMENT 'Number of pages',
-    processing_error TEXT COMMENT 'Error message if failed',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    INDEX idx_user_id (user_id),
-    INDEX idx_status (status),
-    INDEX idx_created_at (created_at)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-COMMENT='Uploaded documents metadata';
-```
-
----
-
-## 6.3 Document Chunks Table
-
-```sql
-CREATE TABLE document_chunks (
+CREATE TABLE organizations (
     id CHAR(36) PRIMARY KEY,
-    document_id CHAR(36) NOT NULL,
-    chunk_index INT UNSIGNED NOT NULL COMMENT 'Order within document',
-    content TEXT NOT NULL COMMENT 'Chunk text content',
-    page_number INT UNSIGNED COMMENT 'Source page number',
-    token_count INT UNSIGNED COMMENT 'Number of tokens',
-    vector_id VARCHAR(100) COMMENT 'ChromaDB vector ID',
+    name VARCHAR(255) NOT NULL,
+    domain VARCHAR(100) UNIQUE COMMENT 'Auto-join via email domain',
+    plan_type ENUM('FREE', 'TEAM', 'ENTERPRISE') DEFAULT 'FREE',
+    seat_limit INT UNSIGNED DEFAULT 5,
+    owner_id CHAR(36) NOT NULL COMMENT 'Primary contact',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
-    FOREIGN KEY (document_id) REFERENCES documents(id) ON DELETE CASCADE,
-    INDEX idx_document_id (document_id),
-    INDEX idx_chunk_index (document_id, chunk_index)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
-COMMENT='Document text chunks for RAG';
+    FOREIGN KEY (owner_id) REFERENCES users(id)
+) COMMENT='B2B Entities (Schools, Companies)';
+```
+
+---
+
+## 6.1.2 Organization Members Table (New)
+
+```sql
+CREATE TABLE organization_members (
+    id CHAR(36) PRIMARY KEY,
+    org_id CHAR(36) NOT NULL,
+    user_id CHAR(36) NOT NULL,
+    org_role ENUM('MEMBER', 'ADMIN', 'OWNER') DEFAULT 'MEMBER',
+    joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    UNIQUE KEY uk_org_user (org_id, user_id),
+    FOREIGN KEY (org_id) REFERENCES organizations(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) COMMENT='Many-to-Many mapping for users in orgs';
+```
+
+---
+
+## 6.1.3 Cohorts / Classes Table (New for Educators)
+
+```sql
+CREATE TABLE cohorts (
+    id CHAR(36) PRIMARY KEY,
+    org_id CHAR(36) COMMENT 'Optional linkage to Org',
+    educator_id CHAR(36) NOT NULL,
+    name VARCHAR(255) NOT NULL COMMENT 'e.g. Physics 101',
+    description TEXT,
+    enrollment_key VARCHAR(50) COMMENT 'Code for students to join',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (org_id) REFERENCES organizations(id) ON DELETE CASCADE,
+    FOREIGN KEY (educator_id) REFERENCES users(id)
+) COMMENT='Classes or Groups managed by Educators';
 ```
 
 ---
