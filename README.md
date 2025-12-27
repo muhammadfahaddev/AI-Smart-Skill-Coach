@@ -331,22 +331,6 @@ We welcome contributions from the community! Whether it's bug fixes, new feature
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 📞 Contact
-
-Have questions or suggestions? We'd love to hear from you!
-
-- 📧 **Email:** contact@aismartskillcoach.com
-- 🐦 **Twitter:** [@AISmartSkillCoach](https://twitter.com)
-- 💼 **LinkedIn:** [AI Smart Skill Coach](https://linkedin.com)
-
----
-
 <p align="center">
   <strong>⭐ If you find this project helpful, please give it a star! ⭐</strong>
 </p>
