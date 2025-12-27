@@ -55,6 +55,9 @@ It's like having a **personal tutor** who has memorized all your study materials
 | # | Document | Description |
 |---|----------|-------------|
 | 1 | [System Design Document](docs/03_Design_Documents/01_System_Design_Document.md) | Architecture, Components, API, Security, Deployment |
+| 2 | [AI System Design Document](docs/03_Design_Documents/02_AI_System_Design_Document.md) | RAG Pipeline, Fine-Tuning, Guardrails, Monitoring |
+| 3 | [Database Design Document](docs/03_Design_Documents/03_Database_Design_Document.md) | MySQL Schema, 13 Tables, Indexes, Security |
+| 4 | [API Specification Document](docs/03_Design_Documents/04_API_Specification_Document.md) | OpenAPI 3.0, REST Endpoints, Auth, Rate Limiting |
 
 ### 📊 Diagrams
 
