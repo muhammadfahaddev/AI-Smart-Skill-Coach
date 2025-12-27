@@ -1,68 +1,106 @@
 # RBAC (Role-Based Access Control) Diagram
-## AI Smart Skill Coach - v1.0
+## AI Smart Skill Coach - v2.0 (Multi-Tenant)
 
 ```mermaid
 flowchart TB
     subgraph Hierarchy["ROLE HIERARCHY"]
-        SA["🔐 SUPER_ADMIN<br/>All permissions + System config"]
-        A["👔 ADMIN<br/>User management + Content + Reports"]
-        P["⭐ PREMIUM USER<br/>Unlimited + Priority Support"]
-        PR["💎 PRO USER<br/>Unlimited docs, 3 certs/month"]
-        F["👤 FREE USER<br/>5 docs, 50 Q/day, Basic"]
+        SA["🔐 SUPER_ADMIN<br/>System Config + All"]
+        A["👔 ADMIN<br/>Platform Moderation"]
+        OA["🏢 ORG_ADMIN<br/>Org Seats, Billing, Analytics"]
+        E["👨‍🏫 EDUCATOR<br/>Cohorts, Student Progress"]
+        P["💼 PROFESSIONAL<br/>Unlimited + Certs"]
+        S["🎓 STUDENT<br/>Basic Learning"]
     end
 
     SA --> A
+    A --> OA
+    OA --> E
+    E --> S
     A --> P
-    A --> PR
-    A --> F
+    P --> S
 
-    subgraph Matrix["PERMISSION MATRIX"]
+    subgraph B2C["B2C PERMISSIONS"]
         direction LR
-        subgraph Free["FREE"]
-            F1["5 docs max"]
-            F2["50 Q/day"]
-            F3["Basic quizzes"]
+        subgraph Student["🎓 STUDENT"]
+            S1["Upload 5 docs"]
+            S2["50 Q/day"]
+            S3["Basic quizzes"]
         end
-        subgraph Pro["PRO"]
+        subgraph Prof["💼 PROFESSIONAL"]
             P1["∞ docs"]
             P2["∞ questions"]
-            P3["All quizzes"]
-            P4["3 certs/month"]
+            P3["All quizzes + Certs"]
         end
-        subgraph Premium["PREMIUM"]
-            PM1["∞ everything"]
-            PM2["Priority Support"]
+    end
+
+    subgraph B2B["B2B PERMISSIONS"]
+        direction LR
+        subgraph Edu["👨‍🏫 EDUCATOR"]
+            E1["Create Cohorts"]
+            E2["Assign Content"]
+            E3["View Student Progress"]
         end
-        subgraph Admin["ADMIN"]
-            A1["User Management"]
+        subgraph Org["🏢 ORG_ADMIN"]
+            O1["Manage Seats"]
+            O2["Org Billing"]
+            O3["Org Analytics"]
+        end
+    end
+
+    subgraph System["SYSTEM PERMISSIONS"]
+        direction LR
+        subgraph Admin["👔 ADMIN"]
+            A1["User Moderation"]
             A2["Content Control"]
-            A3["Reports Access"]
         end
-        subgraph Super["SUPER_ADMIN"]
-            S1["System Config"]
-            S2["All above"]
+        subgraph Super["🔐 SUPER_ADMIN"]
+            SA1["System Config"]
+            SA2["All Permissions"]
         end
     end
 ```
 
-## Permission Details
+---
 
-| Permission | FREE | PRO | PREMIUM | ADMIN | SUPER_ADMIN |
-|------------|------|-----|---------|-------|-------------|
-| Upload Documents | 5 max | ∞ | ∞ | ∞ | ∞ |
-| AI Questions | 50/day | ∞ | ∞ | ∞ | ∞ |
-| Quizzes | Basic | All | All | All | All |
-| Certificates | ✗ | 3/month | ∞ | ∞ | ∞ |
-| Priority Support | ✗ | ✗ | ✓ | ✓ | ✓ |
-| User Management | ✗ | ✗ | ✗ | ✓ | ✓ |
-| System Config | ✗ | ✗ | ✗ | ✗ | ✓ |
+## Permission Matrix (Updated for B2B)
 
-## Role Inheritance
+| Permission | Student | Professional | Educator | Org Admin | Admin | Super Admin |
+|------------|---------|--------------|----------|-----------|-------|-------------|
+| Upload Documents | 5 max | ∞ | ∞ | ❌ | ∞ | ∞ |
+| AI Questions | 50/day | ∞ | ∞ | ❌ | ∞ | ∞ |
+| Take Quizzes | Basic | All | All | ❌ | All | All |
+| Get Certificates | ❌ | ✅ | ✅ | ❌ | ✅ | ✅ |
+| **Create Cohorts** | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ |
+| **View Cohort Progress** | ❌ | ❌ | ✅ | ✅ | ✅ | ✅ |
+| **Manage Org Seats** | ❌ | ❌ | ❌ | ✅ | ✅ | ✅ |
+| **Org Billing** | ❌ | ❌ | ❌ | ✅ | ❌ | ✅ |
+| User Moderation | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ |
+| System Config | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+
+---
+
+## Role Inheritance (Updated)
 
 ```
 SUPER_ADMIN
-    └── ADMIN
-        ├── PREMIUM USER
-        ├── PRO USER
-        └── FREE USER
+├── ADMIN
+│   ├── ORG_ADMIN
+│   │   └── EDUCATOR
+│   │       └── STUDENT
+│   └── PROFESSIONAL
+│       └── STUDENT
 ```
+
+---
+
+## Org-Level vs System-Level Roles
+
+| Scope | Roles | Description |
+|-------|-------|-------------|
+| **Global** | SUPER_ADMIN, ADMIN | Platform-wide permissions |
+| **Org-Scoped** | ORG_ADMIN, EDUCATOR | Limited to their organization |
+| **Individual** | STUDENT, PROFESSIONAL | Personal account only |
+
+---
+
+*Diagram Version: 2.0 | Updated for Multi-Tenant B2B/B2C Architecture*
