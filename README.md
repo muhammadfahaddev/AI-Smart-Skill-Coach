@@ -59,6 +59,33 @@ It's like having a **personal tutor** who has memorized all your study materials
 | 3 | [Database Design Document](docs/03_Design_Documents/03_Database_Design_Document.md) | MySQL Schema, 13 Tables, Indexes, Security |
 | 4 | [API Specification Document](docs/03_Design_Documents/04_API_Specification_Document.md) | OpenAPI 3.0, REST Endpoints, Auth, Rate Limiting |
 
+### 🎨 UI/UX Documents
+
+| # | Document | Description |
+|---|----------|-------------|
+| 1.1 | [Web Wireframes](docs/04_UIUX_Documents/01_Web_App_Wireframes.md) | Desktop App: Dashboard, split-screen Chat, Document Library |
+| 1.2 | [Mobile Wireframes](docs/04_UIUX_Documents/02_Mobile_App_Wireframes.md) | Mobile App: Onboarding, Chat, Quiz Interface |
+| 1.3 | [Admin Wireframes](docs/04_UIUX_Documents/03_Admin_Panel_Wireframes.md) | Admin Panel: User Management, Analytics, Content Moderation |
+| 2 | [User Flows](docs/04_UIUX_Documents/02_User_Flow_Diagrams.md) | 5 Key User Journeys with Mermaid Diagrams |
+| 3 | [Design System](docs/04_UIUX_Documents/03_Design_System_Guide.md) | Colors, Typography, Components, Accessibility |
+
+### 📅 Project Management
+
+| # | Document | Description |
+|---|----------|-------------|
+| 1 | [Project Plan](docs/05_Project_Management/01_Project_Plan_Timeline.md) | 16-Week Timeline, Phases, Milestones |
+| 2 | [Risk Assessment](docs/05_Project_Management/02_Risk_Assessment.md) | Technical, Operational, and Schedule Risks |
+| 3 | [Resource Plan](docs/05_Project_Management/03_Resource_Allocation_Plan.md) | Team Roles, Hardware, Monthly Budget |
+| 4 | [Sprint Planning](docs/05_Project_Management/04_Sprint_Planning.md) | 4-Sprint Roadmap (Setup -> Launch) |
+
+### 🚀 Deployment & Operations
+
+| # | Document | Description |
+|---|----------|-------------|
+| 1 | [Deployment Guide](docs/06_Deployment_Operations/01_Deployment_Guide.md) | Docker, CI/CD, Azure Setup |
+| 2 | [Infra Architecture](docs/06_Deployment_Operations/02_Infrastructure_Architecture.md) | Azure Topology, VNet, Scaling |
+| 3 | [Monitoring Plan](docs/06_Deployment_Operations/03_Monitoring_Maintenance_Plan.md) | KPIs, Alerting Policy, Maintenance Schedule |
+
 ### 📊 Diagrams
 
 All Mermaid diagrams with PNG exports are available in [`docs/diagrams/`](docs/diagrams/README.md)
