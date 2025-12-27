@@ -171,41 +171,7 @@ Is System Design Document (SDD) ka purpose AI Smart Skill Coach ke complete tech
 
 ## 4.2 Architecture Layers
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                         PRESENTATION LAYER                           │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐     │
-│  │   Web App       │  │   Mobile App    │  │   Admin Panel   │     │
-│  │   (Next.js)     │  │   (Flutter)     │  │   (Next.js)     │     │
-│  └────────┬────────┘  └────────┬────────┘  └────────┬────────┘     │
-│           │                    │                    │               │
-├───────────┴────────────────────┴────────────────────┴───────────────┤
-│                           API GATEWAY                                │
-│                    (Nginx + Rate Limiting)                          │
-├─────────────────────────────────────────────────────────────────────┤
-│                         APPLICATION LAYER                            │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ │
-│  │   Auth   │ │ Document │ │   Chat   │ │  Quiz    │ │ Payment  │ │
-│  │ Service  │ │ Service  │ │ Service  │ │ Service  │ │ Service  │ │
-│  └────┬─────┘ └────┬─────┘ └────┬─────┘ └────┬─────┘ └────┬─────┘ │
-│       │            │            │            │            │         │
-├───────┴────────────┴────────────┴────────────┴────────────┴─────────┤
-│                           AI ENGINE LAYER                            │
-│  ┌────────────────────────────────────────────────────────────────┐ │
-│  │                      LangChain Orchestrator                     │ │
-│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐         │ │
-│  │  │  RAG Engine  │  │  Fine-Tuned  │  │ Guardrails   │         │ │
-│  │  │  + Retriever │  │    LLM       │  │  & Safety    │         │ │
-│  │  └──────────────┘  └──────────────┘  └──────────────┘         │ │
-│  └────────────────────────────────────────────────────────────────┘ │
-├─────────────────────────────────────────────────────────────────────┤
-│                           DATA LAYER                                 │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐           │
-│  │  MySQL   │  │ ChromaDB │  │  Redis   │  │  Azure   │           │
-│  │ (Users)  │  │ (Vectors)│  │ (Cache)  │  │ (Files)  │           │
-│  └──────────┘  └──────────┘  └──────────┘  └──────────┘           │
-└─────────────────────────────────────────────────────────────────────┘
-```
+![Architecture Layers](../diagrams/09_ai/v1.0/architecture_layers.png)
 
 ## 4.3 Component Communication
 
@@ -656,6 +622,7 @@ Code Push → GitHub → GitHub Actions → Build → Test → Deploy
 | System Context | `/diagrams/08_architecture/v1.0/system_context.png` |
 | Component Diagram | `/diagrams/08_architecture/v1.0/component_diagram.png` |
 | AI Architecture | `/diagrams/09_ai/v1.0/ai_system_architecture.png` |
+| Architecture Layers | `/diagrams/09_ai/v1.0/architecture_layers.png` |
 | Document Pipeline | `/diagrams/09_ai/v1.0/document_ingestion_pipeline.png` |
 | ERD Overview | `/diagrams/05_erd/v1.0/erd_overview.png` |
 | RBAC Diagram | `/diagrams/08_architecture/v1.0/rbac_diagram.png` |

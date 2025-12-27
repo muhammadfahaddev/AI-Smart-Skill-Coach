@@ -40,10 +40,11 @@ diagrams/
 │       ├── security_architecture.md
 │       ├── component_diagram.md
 │       └── rbac_diagram.md
-└── 09_ai/                              ← NEW
+└── 09_ai/
     └── v1.0/
         ├── document_ingestion_pipeline.md
-        └── ai_system_architecture.md
+        ├── ai_system_architecture.md
+        └── architecture_layers.md       ← NEW
 ```
 
 ---
@@ -60,7 +61,7 @@ diagrams/
 | 6 | Activity | 3 | rag_pipeline.md, document_upload.md, quiz_certification.md |
 | 7 | State | 1 | subscription_state.md |
 | 8 | Architecture | 4 | system_context.md, security_architecture.md, component_diagram.md, rbac_diagram.md |
-| 9 | **AI Diagrams** | 2 | document_ingestion_pipeline.md, ai_system_architecture.md |
+| 9 | **AI Diagrams** | 3 | document_ingestion_pipeline.md, ai_system_architecture.md, architecture_layers.md |
 
 ---
 
@@ -72,4 +73,4 @@ diagrams/
 
 ---
 
-*Total: 19 Mermaid Diagrams*
+*Total: 20 Mermaid Diagrams*

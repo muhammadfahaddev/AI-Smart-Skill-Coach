@@ -70,7 +70,7 @@ All Mermaid diagrams with PNG exports are available in [`docs/diagrams/`](docs/d
 | Activity | 3 | RAG, Upload, Quiz flows |
 | State | 1 | Subscription states |
 | Architecture | 4 | System, Security, Component, RBAC |
-| **AI Diagrams** | 2 | Ingestion Pipeline, AI Architecture |
+| **AI Diagrams** | 3 | Ingestion Pipeline, AI Architecture, Layers |
 
 ---
 
