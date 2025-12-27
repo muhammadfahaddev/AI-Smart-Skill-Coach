@@ -50,6 +50,12 @@ It's like having a **personal tutor** who has memorized all your study materials
 | 4 | [Enhanced UML Diagrams](docs/02_Requirements_Documents/04_Enhanced_UML_Diagrams.md) | Class, Activity, and Sequence diagrams |
 | 5 | [AI Requirements Specification](docs/02_Requirements_Documents/05_AI_Requirements_Specification.md) | RAG, Fine-Tuning, Performance Metrics, Data Pipeline |
 
+### 🏗️ Design Documents
+
+| # | Document | Description |
+|---|----------|-------------|
+| 1 | [System Design Document](docs/03_Design_Documents/01_System_Design_Document.md) | Architecture, Components, API, Security, Deployment |
+
 ### 📊 Diagrams
 
 All Mermaid diagrams with PNG exports are available in [`docs/diagrams/`](docs/diagrams/README.md)

@@ -162,12 +162,22 @@ Provide a clear, accurate answer with source citations.
 
 ### 2.1.1 Recommended Models
 
-| Model | Size | Advantage | Domain |
-|-------|------|-----------|--------|
-| Llama 2 7B | 7B | Best balance | General |
-| Mistral 7B | 7B | Better performance | Technical |
-| CodeLlama | 7B | Code understanding | IT Domain |
-| BioMistral | 7B | Medical knowledge | Medical Domain |
+| Model | Size | Advantage | Domain | Provider |
+|-------|------|-----------|--------|----------|
+| **Gemini 1.5 Flash** | - | Fast, cost-effective | General | Google AI Studio |
+| **Gemini 1.5 Pro** | - | Best quality | Complex reasoning | Google AI Studio |
+| Llama 2 7B | 7B | Best balance | General | Meta (Open) |
+| Mistral 7B | 7B | Better performance | Technical | Mistral AI |
+| CodeLlama | 7B | Code understanding | IT Domain | Meta (Open) |
+| BioMistral | 7B | Medical knowledge | Medical Domain | HuggingFace |
+
+### 2.1.2 Primary Recommendation: Google AI Studio
+
+| Model | Context | Cost | Best For |
+|-------|---------|------|----------|
+| **Gemini 1.5 Flash** | 1M tokens | Free tier available | RAG, Q&A |
+| **Gemini 1.5 Pro** | 2M tokens | Pay-per-use | Complex analysis |
+| **Gemini 1.0 Pro** | 32K tokens | Low cost | Basic tasks |
 
 ---
 
