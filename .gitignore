@@ -1,6 +1,3 @@
-# AI Engine (separate repo)
-ai_engine/
-
 # Python
 __pycache__/
 *.py[cod]
@@ -9,6 +6,7 @@ venv/
 .env
 .env.local
 
+/ai_engine
 # IDE
 .idea/
 .vscode/
