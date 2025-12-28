@@ -14,7 +14,7 @@
 
 ## 1. Entity Relationship Diagram (ERD)
 
-![ERD Diagram](../diagrams/05_erd/v1.0/ER%20Diagram-2025-12-27-161616.png)
+![ERD Diagram](../diagrams/05_erd/v1.0/entity_relationship.png)
 
 ---
 

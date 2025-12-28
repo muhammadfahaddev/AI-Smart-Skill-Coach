@@ -88,19 +88,21 @@ It's like having a **personal tutor** who has memorized all your study materials
 
 ### 📊 Diagrams
 
-All Mermaid diagrams with PNG exports are available in [`docs/diagrams/`](docs/diagrams/README.md)
+All Mermaid diagrams (`.md`) with PNG exports are available in [`docs/diagrams/`](docs/diagrams/README.md)
 
-| Type | Count | Examples |
-|------|-------|----------|
-| Use Case | 1 | User & Admin interactions |
-| Data Flow | 2 | DFD Level 0 & 1 |
-| Sequence | 3 | Auth, Q&A, Payment flows |
-| Class | 1 | Entity relationships |
-| ERD | 2 | Database schema |
-| Activity | 3 | RAG, Upload, Quiz flows |
-| State | 1 | Subscription states |
-| Architecture | 4 | System, Security, Component, RBAC |
-| **AI Diagrams** | 3 | Ingestion Pipeline, AI Architecture, Layers |
+| # | Type | Files | Description |
+|---|------|-------|-------------|
+| 1 | Use Case | `use_case_diagram` | User & Admin interactions |
+| 2 | Data Flow | `dfd_level_0`, `dfd_level_1` | System data flow (Level 0 & 1) |
+| 3 | Sequence | `authentication_flow`, `payment_flow`, `qa_flow` | Auth, Payment, Q&A flows |
+| 4 | Class | `class_diagram` | Entity & class relationships |
+| 5 | ERD | `entity_relationship`, `erd_overview` | Database schema diagrams |
+| 6 | Activity | `document_upload`, `quiz_certification`, `rag_pipeline` | Upload, Quiz, RAG flows |
+| 7 | State | `subscription_state` | Subscription state machine |
+| 8 | Architecture | `system_context`, `security_architecture`, `component_diagram`, `rbac_diagram` | System architecture |
+| 9 | AI | `document_ingestion_pipeline`, `ai_system_architecture`, `architecture_layers` | AI/RAG architecture |
+
+> **Total:** 20 Diagrams (9 Categories) | **Format:** Mermaid `.md` + Exported `.png`
 
 ---
 

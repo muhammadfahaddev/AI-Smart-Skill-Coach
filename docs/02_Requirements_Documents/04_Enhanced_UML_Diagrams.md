@@ -14,7 +14,7 @@
 
 ## 1. Class Diagram
 
-![Class Diagram](../diagrams/04_class/v1.0/Class%20Diagram-2025-12-27-161458.png)
+![Class Diagram](../diagrams/04_class/v1.0/class_diagram.png)
 
 ---
 
@@ -32,7 +32,7 @@
 
 ## 4. Sequence Diagram - Authentication Flow
 
-![Authentication Flow](../diagrams/03_sequence/v1.0/Authentication%20Flow-2025-12-27-160355.png)
+![Authentication Flow](../diagrams/03_sequence/v1.0/authentication_flow.png)
 
 ---
 

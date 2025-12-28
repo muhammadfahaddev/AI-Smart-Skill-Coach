@@ -566,38 +566,38 @@ AI Smart Skill Coach ek standalone SaaS platform hai jo multiple components se m
 
 ## 7.1 Use Case Diagram
 
-![Use Case Diagram](../diagrams/01_use_case/v1.0/use%20case%20diagram.png)
+![Use Case Diagram](../diagrams/01_use_case/v1.0/use_case_diagram.png)
 
 ---
 
 
 ## 7.2 Data Flow Diagram (DFD) - Level 0
 
-![DFD Level 0](../diagrams/02_data_flow/v1.0/DFD-0.png)
+![DFD Level 0](../diagrams/02_data_flow/v1.0/dfd_level_0.png)
 
 ---
 
 ## 7.3 Data Flow Diagram (DFD) - Level 1
 
-![DFD Level 1](../diagrams/02_data_flow/v1.0/dfd-1.png)
+![DFD Level 1](../diagrams/02_data_flow/v1.0/dfd_level_1.png)
 
 ---
 
 ## 7.4 RAG System Flow Diagram
 
-![RAG Pipeline](../diagrams/06_flowchart/v1.0/AI%20flow%20Diagramf-2025-12-27-162054.png)
+![RAG Pipeline](../diagrams/06_activity/v1.0/rag_pipeline.png)
 
 ---
 
 ## 7.5 Sequence Diagram - User Q&A Flow
 
-![Q&A Flow](../diagrams/03_sequence/v1.0/Q%26A%20Flow-2025-12-27-160647.png)
+![Q&A Flow](../diagrams/03_sequence/v1.0/qa_flow.png)
 
 ---
 
 ## 7.6 Sequence Diagram - Payment Flow
 
-![Payment Flow](../diagrams/03_sequence/v1.0/Payment%20Flow-2025-12-27-160546.png)
+![Payment Flow](../diagrams/03_sequence/v1.0/payment_flow.png)
 
 ---
 
