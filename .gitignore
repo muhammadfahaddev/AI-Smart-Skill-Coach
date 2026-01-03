@@ -7,6 +7,8 @@ venv/
 .env.local
 
 /ai_engine
+/web
+/Frontend
 # IDE
 .idea/
 .vscode/
