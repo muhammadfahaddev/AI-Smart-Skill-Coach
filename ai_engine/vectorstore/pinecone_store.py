@@ -30,8 +30,8 @@ class PineconeStore(BaseVectorStore):
         # Get API key from env if not provided
         if api_key is None:
             import os
-from dotenv import load_dotenv
-load_dotenv()
+            from dotenv import load_dotenv
+            load_dotenv()
             api_key = os.getenv("PINECONE_API_KEY")
         
         self.api_key = api_key
